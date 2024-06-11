@@ -1,0 +1,92 @@
+{
+	"info": {
+		"_postman_id": "3c128380-79bf-45fd-ae41-dc1467f909d8",
+		"name": "TareaJavaSpringBoot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "2025967",
+		"_collection_link": "https://warped-shadow-434951.postman.co/workspace/yampy~e14e06de-8c13-4903-a577-79e422e366c0/collection/2025967-3c128380-79bf-45fd-ae41-dc1467f909d8?action=share&source=collection_link&creator=2025967"
+	},
+	"item": [
+		{
+			"name": "obtenerTodos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:9000/farmacia/"
+			},
+			"response": []
+		},
+		{
+			"name": "obtenerPorId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:9000/farmacia/1"
+			},
+			"response": []
+		},
+		{
+			"name": "obtenerTodosQuery",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:9000/farmacia/getQuery"
+			},
+			"response": []
+		},
+		{
+			"name": "obtenerTipos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:9000/farmacia/tipos"
+			},
+			"response": []
+		},
+		{
+			"name": "guardar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Amoxicilina\",\r\n    \"distributor\":\"Cofarma\",\r\n    \"address\":\"Calle de la Rosa N. 28\",\r\n    \"type\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9000/farmacia"
+			},
+			"response": []
+		},
+		{
+			"name": "modificar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Acetaminofen modificada\",\r\n    \"distributor\":\"Cofarma\",\r\n    \"address\":\"Calle de la Rosa N. 28\",\r\n    \"quantity\":1\r\n    // \"type\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9000/farmacia/1"
+			},
+			"response": []
+		},
+		{
+			"name": "eliminar",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:9000/farmacia/1000"
+			},
+			"response": []
+		}
+	]
+}
