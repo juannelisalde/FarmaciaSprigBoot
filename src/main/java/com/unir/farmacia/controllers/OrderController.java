@@ -65,7 +65,7 @@ public class OrderController {
     return orderTypeRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
   }
 
-  @CrossOrigin(origins = "http://localhost:3000")
+  @CrossOrigin(origins = "*")
   @PostMapping
   public String save(@Valid @RequestBody OrderEntity entity) {
     try {
@@ -78,7 +78,7 @@ public class OrderController {
     }
   }
 
-  @CrossOrigin(origins = "http://localhost:3000")
+  @CrossOrigin(origins = "*")
   @PutMapping("/{id}")
   public String update(@PathVariable int id, @Valid @RequestBody OrderEntity entity) {
     try {
@@ -96,7 +96,7 @@ public class OrderController {
 
   }
 
-  @CrossOrigin(origins = "http://localhost:3000")
+  @CrossOrigin(origins = "*")
   @DeleteMapping("/{id}")
   public String delete(@PathVariable int id) {
     try {
