@@ -25,7 +25,7 @@ public class FarmaciaApplication {
 			orderTypeRepository.save(new OrderTypeEntity(4, "antiácido"));
 			orderTypeRepository.save(new OrderTypeEntity(5, "antidepresivo"));
 			orderTypeRepository.save(new OrderTypeEntity(6, "antibióticos"));
-
+			
 			orderRepository.save(new OrderEntity(1, "Paracetamol", 1, "Copifam", "calle 1 # 4 57", 1, null));
 
 		};

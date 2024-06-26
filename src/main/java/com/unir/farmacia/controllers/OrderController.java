@@ -8,6 +8,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.transaction.CannotCreateTransactionException;
 import org.springframework.transaction.TransactionSystemException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,7 +39,7 @@ public class OrderController {
 
   @GetMapping("/")
   public List<OrderEntity> findAll() {
-    return orderRepository.findAll();
+    return orderRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
   }
 
   @GetMapping("/{id}")
@@ -49,6 +50,11 @@ public class OrderController {
     return orderRepository.findById(id).get();
   }
 
+  @GetMapping("/search/{name}")
+  public List<OrderEntity> findByName(@PathVariable String name) {
+    return orderRepository.findByNameIgnoreCaseContaining(name);
+  }
+  
   @GetMapping("/getQuery")
   public List<OrderResponse> getJoinInformation() {
     return orderTypeRepository.getJoinInformation();
@@ -59,6 +65,7 @@ public class OrderController {
     return orderTypeRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
   }
 
+  @CrossOrigin(origins = "http://localhost:3000")
   @PostMapping
   public String save(@Valid @RequestBody OrderEntity entity) {
     try {
@@ -71,6 +78,7 @@ public class OrderController {
     }
   }
 
+  @CrossOrigin(origins = "http://localhost:3000")
   @PutMapping("/{id}")
   public String update(@PathVariable int id, @Valid @RequestBody OrderEntity entity) {
     try {
@@ -88,6 +96,7 @@ public class OrderController {
 
   }
 
+  @CrossOrigin(origins = "http://localhost:3000")
   @DeleteMapping("/{id}")
   public String delete(@PathVariable int id) {
     try {
